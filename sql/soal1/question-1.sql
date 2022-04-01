@@ -1,0 +1,1 @@
+SELECT persons.name, SUM(total * price) AS total_price FROM persons INNER JOIN transactions ON persons.id = transactions.person_id INNER JOIN items ON transactions.item_id = items.id GROUP BY person_id;

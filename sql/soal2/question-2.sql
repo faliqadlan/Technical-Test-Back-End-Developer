@@ -1,0 +1,1 @@
+SELECT persons.name AS person_name, items.name AS item_name FROM persons INNER JOIN transactions ON persons.id = transactions.person_id INNER JOIN items ON transactions.item_id = items.id WHERE date BETWEEN '20200101' AND '20200625';
