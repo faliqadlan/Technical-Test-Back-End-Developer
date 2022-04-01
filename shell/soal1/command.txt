@@ -1,0 +1,2 @@
+top -b -n 1 |grep httpd|wc -l
+sudo netstat -lntp
