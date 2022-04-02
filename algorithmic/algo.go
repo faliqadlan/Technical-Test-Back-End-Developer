@@ -1,5 +1,7 @@
 package algorithmic
 
+import "fmt"
+
 func AllSum(number int) int {
 
 	var p = make([]int, number+1)
@@ -32,4 +34,21 @@ func AllSum(number int) int {
 	}
 
 	return p[number] - 1
+}
+
+func AllSumSet(arr []int, i, number int) {
+
+	if number == 0 {
+		fmt.Println(arr)
+		return
+	}
+
+	for j := i; j < number+1; j++ {
+		fmt.Println(arr, j, number)
+		arr = append(arr, j)
+
+		AllSumSet(arr, j, number-j)
+
+		arr = arr[:len(arr)-1]
+	}
 }
