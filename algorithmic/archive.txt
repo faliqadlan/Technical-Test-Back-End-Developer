@@ -1,0 +1,16 @@
+func PartitionSet(arr []int, i, number int) {
+
+	if number == 0 {
+		fmt.Println(arr)
+		return
+	}
+
+	for j := i; j < number+1; j++ {
+		fmt.Println(arr, j, number)
+		arr = append(arr, j)
+
+		PartitionSet(arr, j, number-j)
+
+		arr = arr[:len(arr)-1]
+	}
+}

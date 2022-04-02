@@ -2,7 +2,7 @@ package algorithmic
 
 import "fmt"
 
-func AllSum(number int) int {
+func PartitionTotal(number int) int {
 
 	var p = make([]int, number+1)
 
@@ -36,19 +36,52 @@ func AllSum(number int) int {
 	return p[number] - 1
 }
 
-func AllSumSet(arr []int, i, number int) {
+// func PartitionSet1(n int) (result [][]int) {
 
+// }
+
+func PartitionSetProcessLearn(arr []int, i, number int) {
+	fmt.Println("44", arr, i, number)
 	if number == 0 {
 		fmt.Println(arr)
 		return
 	}
-
+	fmt.Println("45", arr, i, number)
 	for j := i; j < number+1; j++ {
-		fmt.Println(arr, j, number)
+		fmt.Println("47", arr, j, i, number)
 		arr = append(arr, j)
 
-		AllSumSet(arr, j, number-j)
+		fmt.Println("50", arr, j, i, number)
+
+		PartitionSetProcess(arr, j, number-j)
+		fmt.Println("53", arr, j, i, number)
 
 		arr = arr[:len(arr)-1]
+
+		fmt.Println("57", arr, j, i, number)
+
 	}
+
+}
+
+func PartitionSetProcess(arr []int, i, number int) {
+	if number == 0 {
+		fmt.Println(arr)
+		return
+	}
+	for j := i; j < number+1; j++ {
+		arr = append(arr, j)
+
+		PartitionSetProcess(arr, j, number-j)
+
+		arr = arr[:len(arr)-1]
+
+	}
+
+}
+
+func PartitionSet(n int) {
+	var arr []int
+
+	PartitionSetProcess(arr, 1, n)
 }
